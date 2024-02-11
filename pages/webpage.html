@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Mate</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <div class="section-1">
+        <nav>       <!--add study mate logo and links-->
+            <h1 class="logo">STUDY MATE<span class="dot">.</span></h1>
+            <ul>
+		    <li><a href="#" onclick="viewRedirect()">View</a></li>
+                <li><a href="#" onclick="submitForm()">Update</a></li>
+                <li><a href="#" onclick="delRedirect()">Delete</a></li>
+                <li><a class="btn-1" href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+        <div class="container-1">
+            <div class="contains-1">
+                <h1>Start Your<br>Education Journey<br>Today!</h1>
+                <br>
+                <p>Study Mate is an online platform that you can  enroll with 
+                <br>thousands of online courses.</p>
+                <p>Our website offers a wide range of courses spanning various fields of study.
+                    <br> To commence your learning journey, you may register with us at your convenience.
+                </p>
+
+                <!--link the courses with the button-->
+                <div class="btn-3"><a href="../registration.html">Get Started</a></div>
+            </div>
+
+            <!--add the logo of study mate-->
+            <div class="contains-2">
+                <img src="../assets/StudyMate.png">
+            </div>
+        </div>
+    </div>
+<form action="actions/updateRedirect.php" method="POST" id="storedSID">
+	<input type="hidden" id="sid" name="sid">
+</form>
+<script>
+	// Get the URL parameters
+	const urlParams = new URLSearchParams(window.location.search);
+	const stdid = urlParams.get('stdid');
+
+	// Set the input values
+	document.getElementById('sid').value = stdid;
+
+	function submitForm() {
+		document.getElementById('storedSID').submit();
+	}
+
+	function delRedirect() {
+		window.location.href="delete.html?stdid=" + stdid;
+	}
+	
+	function viewRedirect() {
+		window.location.href="view.html?stdid=" + stdid;
+	}
+</script>
+</body>
+</html>

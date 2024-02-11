@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>View Form</title>
+</head>
+<body>
+<div class="container">
+	<div class="title">Someone's Details</div><br><br>
+  	<table>
+		<tr>
+			<th>Student ID</th>
+			<th id="stdid"></th>
+		</tr>
+		<tr>
+			<th>Full Name</th>
+			<th id="fname"></th>
+		</tr>
+		<tr>
+			<th>Mobile Number</th>
+			<th id="mob"></th>
+		</tr>
+		<tr>
+			<th>City</th>
+			<th id="city"></th>
+		</tr>
+	</table>
+	<br><br><br>
+	<div class="footer">
+	  	<footer>....Check Your Details....</footer>
+	  </div>
+</div>	
+
+<style>
+	body
+	{
+		display: flex;
+		height: 100vh;
+		justify-content: center;
+		align-items: center;
+		background: linear-gradient(-135deg, #ADF7F2, #15AAFF); 
+	}
+	
+	.container
+	{	
+		max-width: 1000px;
+		width: 100%;
+		background: #fff;
+		padding: 90px 90px;
+		border-radius: 9px;
+	}
+	
+	.container .title
+	{
+		text-align: center;
+		font-size: 40px;
+		font-weight: 700;
+		position: relative;
+		font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+		
+	}
+	
+	.container .title::before
+	{
+		content: '';
+		position: absolute;
+		bottom: 0;
+		height: 5px;
+		width: 342px;
+		background: linear-gradient(-135deg, #ADF7F2, #0077B6);
+	}
+	
+	table
+	{
+		border-collapse: collapse;
+		margin-left: 10%
+	}
+	
+	th,td
+	{
+		font-size:30px;
+		border: 3px solid #0077B6 ;
+		width: 400px;
+		height: 70px;
+		font-family: arial, sans-serif;
+	}
+	
+	footer
+	{		text-align: center;
+			font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+			font-weight: bold;
+			color: gray;
+	}
+
+</style>
+<script>
+	const urlParams = new URLSearchParams(window.location.search);
+	const stdid = urlParams.get('stdid');
+	const fname = urlParams.get('fname');
+	const mob = urlParams.get('mob');
+	const city = urlParams.get('city');
+
+	document.getElementById('stdid').textContent = stdid;
+	document.getElementById('fname').textContent = fname;
+	document.getElementById('mob').textContent = mob;
+	document.getElementById('city').textContent = city;
+</script>
+</body>
+</html>
